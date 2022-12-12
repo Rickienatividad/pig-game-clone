@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(214, 49, 49);
+}
+.game-container {
+  position: relative;
+  margin: auto;
+  top: 5rem;
+  width: 55vw;
+  height: 55vh;
+  background-color: rgb(244, 195, 244);
+}
+
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex {
+  width: 50%;
+  text-align: center;
+}
