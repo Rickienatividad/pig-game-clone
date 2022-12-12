@@ -14,6 +14,7 @@ body {
   width: 55vw;
   height: 55vh;
   background-color: rgb(244, 195, 244);
+  overflow: hidden;
 }
 
 .flex-box {
@@ -27,9 +28,12 @@ body {
 }
 
 .flex {
+  position: relative;
   width: 50%;
   text-align: center;
+  top: 1.2rem;
   /* border: 1px solid blue; */
+  padding-top: 2.3rem;
 
 }
 
@@ -53,7 +57,6 @@ body {
   width: 10rem;
   height: 7.5rem;
   line-height: 2.25rem;
-  box-sizing: border-box;
   background-color:rgb(214, 49, 49);
 }
 
@@ -64,4 +67,23 @@ body {
 
 .player-2-half {
   background-color: rgb(223, 126, 220);
+}
+
+.flex-buttons{
+  top: 1.3rem;
+  left: 30rem;
+  gap: 15px;
+  justify-content: center;
+  display: flex;
+}
+
+.flex-buttons * {
+  position: relative;
+  top: 1.2rem;
+  z-index: 10;
+}
+
+button {
+  padding: 3px 8px;
+  border-radius: 25px;
 }
