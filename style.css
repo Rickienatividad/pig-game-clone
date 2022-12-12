@@ -1,21 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: rgb(214, 49, 49);
 }
 .game-container {
   position: relative;
   margin: auto;
-  top: 5rem;
+  top: 5.5rem;
   width: 55vw;
   height: 55vh;
   background-color: rgb(244, 195, 244);
 }
 
 .flex-box {
+  position: relative;
+  bottom: 1.2rem;
   display: flex;
   justify-content: space-between;
+  font-size: 1.5rem;
+  height: 100%;
+  /* border: 1px solid white; */
 }
 
 .flex {
   width: 50%;
   text-align: center;
+  /* border: 1px solid blue; */
+
+}
+
+.flex h3 {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.player-1-score, .player-2-score {
+  color:rgb(214, 49, 49);
+  font-size: 2.85rem;
+}
+
+.current-score {
+  font-size: 1.75rem;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px 20px;
+  margin: 5rem auto;
+  text-align: center;
+  width: 10rem;
+  height: 7.5rem;
+  line-height: 2.25rem;
+  box-sizing: border-box;
+  background-color:rgb(214, 49, 49);
+}
+
+.current-score h5 {
+  position: relative;
+  margin-top: 1.1rem;
+}
+
+.player-2-half {
+  background-color: rgb(223, 126, 220);
 }
