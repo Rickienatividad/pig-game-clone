@@ -87,3 +87,12 @@ button {
   padding: 3px 8px;
   border-radius: 25px;
 }
+
+.dice-container {
+  position: relative;
+  width: 5.5rem;
+  height: 5.5rem;
+  background: #fff;
+  top: 3.75rem;
+  margin: auto;
+}
