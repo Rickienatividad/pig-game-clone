@@ -19,14 +19,14 @@ const holdButton = document.querySelector(".hold");
 let currentScore;
 
 function switchPlayer() {
-  holdButton.addEventListener("click", function () {
-    let active = activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
-    activePlayer = active;
-    console.log(activePlayer);
-    return activePlayer;
-  });
+  let active = activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
+  activePlayer = active;
+  // console.log(activePlayer);
+  return activePlayer;
 }
-switchPlayer();
+
+holdButton.addEventListener("click", switchPlayer);
+// switchPlayer();
 
 rollButton.addEventListener("click", function rollDice() {
   const random = Math.trunc(Math.random() * (7 - 1) + 1);
@@ -36,4 +36,10 @@ rollButton.addEventListener("click", function rollDice() {
   document.querySelector(`#p${activePlayer}`).textContent =
     Number(document.querySelector(`#p${activePlayer}`).textContent) +
     Number(random);
+
+  if (random === 1) {
+    document.querySelector(`#p${activePlayer}`).textContent = 0;
+
+    switchPlayer();
+  }
 });
