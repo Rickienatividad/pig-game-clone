@@ -1,12 +1,12 @@
 const p1Current = document.querySelector("#p1");
 const p1Score = document.querySelector(".player-1-score");
 const p1Half = document.querySelector(".player-1-half");
-p1Half.style.backgroundColor = "rgb(244, 195, 244)";
+
+p1Half.classList.remove("med-bg");
 
 const p2Current = document.querySelector("#p2");
 const p2Score = document.querySelector(".player-2-score");
 const p2Half = document.querySelector(".player-2-half");
-p2Half.style.backgroundColor = "rgb(223, 126, 220)";
 
 //set current player
 let activePlayer = 1;
@@ -21,9 +21,14 @@ let currentScore;
 function switchPlayer() {
   let active = activePlayer === 1 ? (activePlayer = 2) : (activePlayer = 1);
   activePlayer = active;
-  // console.log(activePlayer);
+  p1Half.classList.toggle("med-bg");
+  p2Half.classList.toggle("med-bg");
   return activePlayer;
 }
+
+let bigScore = document.querySelector(
+  `.player-${activePlayer}-score`
+).textContent;
 
 holdButton.addEventListener("click", switchPlayer);
 // switchPlayer();
@@ -33,13 +38,13 @@ rollButton.addEventListener("click", function rollDice() {
   console.log(random);
 
   dice.setAttribute("src", `./assets/dice${random}.png`);
-  document.querySelector(`#p${activePlayer}`).textContent =
+  document.querySelector(`#p${activePlayer}`).textContent = currentScore =
     Number(document.querySelector(`#p${activePlayer}`).textContent) +
     Number(random);
 
   if (random === 1) {
-    document.querySelector(`#p${activePlayer}`).textContent = 0;
-
+    currentScore = 0;
     switchPlayer();
   }
+  return currentScore;
 });

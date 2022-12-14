@@ -17,6 +17,14 @@ body {
   overflow: hidden;
 }
 
+.light-bg {
+  background-color: rgb(244, 195, 244);
+}
+
+.med-bg{
+  background-color:rgb(223, 126, 220)
+}
+
 .flex-box {
   position: relative;
   bottom: 1.2rem;
@@ -65,13 +73,13 @@ body {
   margin-top: 1.1rem;
 }
 
-.player-1-half {
+/* .player-1-half {
   background-color: rgb(244, 195, 244);
 }
 
 .player-2-half {
   background-color: rgb(223, 126, 220);
-}
+} */
 
 .flex-buttons{
   top: 1.3rem;
