@@ -25,33 +25,44 @@ function switchPlayer() {
   activePlayer = active;
   p1Half.classList.toggle("med-bg");
   p2Half.classList.toggle("med-bg");
+  document.querySelector(`#p${activePlayer}`).textContent = 0;
   return activePlayer;
 }
 
-let bigScore = document.querySelector(
-  `.player-${activePlayer}-score`
-).textContent;
-
-holdButton.addEventListener("click", switchPlayer);
 // switchPlayer();
+
+let activeCurrent;
 
 rollButton.addEventListener("click", function rollDice() {
   const random = Math.trunc(Math.random() * (7 - 1) + 1);
-  console.log(random);
+  // console.log(random);
 
   dice.setAttribute("src", `./assets/dice${random}.png`);
-  document.querySelector(`#p${activePlayer}`).textContent =
+  activeCurrent = document.querySelector(`#p${activePlayer}`).textContent =
     Number(document.querySelector(`#p${activePlayer}`).textContent) +
     Number(random);
 
   if (random === 1) {
+    activeCurrent = 0;
     document.querySelector(`#p${activePlayer}`).textContent = 0;
+    // console.log(activeCurrent);
     switchPlayer();
-  } else {
-    scores[activePlayer] = document.querySelector(
-      `#p${activePlayer}`
-    ).textContent;
-    document.querySelector(`.player-${activePlayer}-score`).textContent =
-      scores[activePlayer];
   }
+  console.log(activeCurrent);
+  scores[activePlayer] = activeCurrent;
+  return scores[activePlayer];
+  // console.log(scores[activePlayer]);
+  // return activeCurrent;
 });
+
+holdButton.addEventListener("click", () => {
+  scoreUpdate();
+  switchPlayer();
+});
+
+function scoreUpdate() {
+  document.querySelector(`.player-${activePlayer}-score`).textContent =
+    Number(
+      document.querySelector(`.player-${activePlayer}-score`).textContent
+    ) + scores[activePlayer];
+}
