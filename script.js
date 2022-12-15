@@ -17,6 +17,7 @@ const dice = document.querySelector(".dice");
 
 const rollButton = document.querySelector(".roll");
 const holdButton = document.querySelector(".hold");
+const newButton = document.querySelector(".btn-new");
 
 let currentScore;
 
@@ -66,3 +67,12 @@ function scoreUpdate() {
       document.querySelector(`.player-${activePlayer}-score`).textContent
     ) + scores[activePlayer];
 }
+
+function newGame() {
+  p1Score.textContent = 0;
+  p2Score.textContent = 0;
+  p1Current.textContent = 0;
+  p2Current.textContent = 0;
+}
+
+newButton.addEventListener("click", newGame);
