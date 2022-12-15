@@ -1,3 +1,5 @@
+let scores = [0, 0, 0];
+
 const p1Current = document.querySelector("#p1");
 const p1Score = document.querySelector(".player-1-score");
 const p1Half = document.querySelector(".player-1-half");
@@ -38,13 +40,18 @@ rollButton.addEventListener("click", function rollDice() {
   console.log(random);
 
   dice.setAttribute("src", `./assets/dice${random}.png`);
-  document.querySelector(`#p${activePlayer}`).textContent = currentScore =
+  document.querySelector(`#p${activePlayer}`).textContent =
     Number(document.querySelector(`#p${activePlayer}`).textContent) +
     Number(random);
 
   if (random === 1) {
-    currentScore = 0;
+    document.querySelector(`#p${activePlayer}`).textContent = 0;
     switchPlayer();
+  } else {
+    scores[activePlayer] = document.querySelector(
+      `#p${activePlayer}`
+    ).textContent;
+    document.querySelector(`.player-${activePlayer}-score`).textContent =
+      scores[activePlayer];
   }
-  return currentScore;
 });
